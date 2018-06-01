@@ -1,0 +1,205 @@
+/*!
+Theme Name: Baseplate 4
+Theme URI: http://underscores.me/
+Author: J T Willard
+Author URI: http://jyst.uk
+Description: WP Baseplate4 Project
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: baseplate-4
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+*/
+
+
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ *
+ * You can see the styles here:
+ * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/preflight";
+ */
+@tailwind preflight;
+
+/**
+ * This injects any component classes registered by plugins.
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/components";
+ */
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700');
+@import url("https://use.typekit.net/hwr6qnm.css");
+
+@import "components/elements";
+@import "plugins/aos";
+
+
+// Image effects
+
+.perspective-l {
+  transform: perspective(800px) rotateY(45deg) rotateX(6deg);
+}
+.perspective-r {
+  transform: perspective(800px) rotateY(-45deg) rotateX(6deg);
+}
+
+// Wheel animation
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(60px);
+  }
+}
+
+svg #wheel {
+  animation: scroll ease 2s infinite;
+}
+
+// Perspective Mockups
+.p-mockup-desktop {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  position: relative;
+  display: block;
+  transform: perspective(2400px) rotateY(35deg) rotateZ(-15deg) rotateX(35deg);
+  box-shadow: -15px 15px 5px rgba(0,0,0,.05), -25px 45px 65px rgba(0,0,0,.25);
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    left: 66.66667%;
+    z-index: 10;
+  }
+}
+.p-mockup-mobile {
+  width: 100%;
+  max-width: 375px;
+  height: auto;
+  position: relative;
+  display: block;
+  transform: perspective(2400px) rotateY(35deg) rotateZ(-15deg) rotateX(35deg);
+  box-shadow: -15px 15px 5px rgba(0,0,0,.05), -25px 45px 65px rgba(0,0,0,.25);
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    left: 66.66667%;
+    z-index: 10;
+  }
+}
+
+.service-intro {
+  @apply .mb-6 .mt-2;
+  p {
+    @apply .text-xl .text-grey-dark .font-light .max-w-md; 
+    @media screen and (min-width:576px) {
+      @apply .text-2xl
+    }
+  }
+}
+
+
+
+// Content Main Image effects
+
+.image-effect--circle {
+  @apply .rounded-full .max-w-full .h-auto;
+}
+.image-effect--3d-left {
+  @apply .max-w-full .h-auto .shadow-lg;
+  transform: perspective(1000px) rotateY(35deg) rotateX(6deg);
+}
+.image-effect--3d-right {
+  transform: perspective(1000px) rotateY(-35deg) rotateX(6deg);
+  @apply .max-w-full .h-auto .shadow-lg;
+}
+.image-effect--offset-left {
+  // TBC
+}
+.image-effect--offset-right {
+  // TBC
+}
+
+
+
+
+.menu {
+  ul {
+    @apply .list-reset .flex;
+  }
+  li {
+    @apply .pl-4 .text-lg .uppercase .text-sm .font-bold .tracking-widest;
+  }
+}
+
+.numberCircle {
+  width: 2em;
+  height: 2em;
+  box-sizing:initial;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 2em;
+  box-sizing: content-box;
+  display: inline-block;
+}
+
+
+
+@tailwind components;
+
+/**
+ * Here you would add any of your custom component classes; stuff that you'd
+ * want loaded *before* the utilities so that the utilities could still
+ * override them.
+ *
+ * Example:
+ *
+ * .btn { ... }
+ * .form-input { ... }
+ *
+ * Or if using a preprocessor or `postcss-import`:
+ *
+ * @import "components/buttons";
+ * @import "components/forms";
+ */
+
+
+
+
+
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/utilities";
+ */
+
+@tailwind utilities;
+
+/**
+ * Here you would add any custom utilities you need that don't come out of the
+ * box with Tailwind.
+ *
+ * Example :
+ *
+ * .bg-pattern-graph-paper { ... }
+ * .skew-45 { ... }
+ *
+ * Or if using a preprocessor or `postcss-import`:
+ *
+ * @import "utilities/background-patterns";
+ * @import "utilities/skew-transforms";
+ */
+
+
+
+
+
+
